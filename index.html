@@ -1,16 +1,171 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     
 <meta charset="utf-8" />
 <meta name="robots" content="noindex,nofollow" />
 <meta name="viewport" content="width=device-width" />
-<meta name="description" content="General contractor with a background in fine art woodworking. Available for hire in the greater Seattle area." />
-<link href='https://fonts.googleapis.com/css?family=Unkempt:400,700|Averia+Sans+Libre:400,700' rel='stylesheet' type='text/css'>
+<meta name="description" content="Sean Gilliland's Github Pages site" />
 <link rel="stylesheet" href="css/rprstyles.css">
 <script src="https://code.jquery.com/jquery-2.2.0.js" type="text/javascript"></script>
     
 <title>Sean G.</title>
 </head>
 <body>
+<style>
+    html {
+      box-sizing: border-box;
+      background:#000000;
+      font-family:'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+    }
+    body {
+      margin: 0;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    .p-background {
+        
+    }
+
+    .panels {
+      min-height:100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .panel {
+      background:#000000;
+      box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
+      color:white;
+      text-align: center;
+      align-items:center;
+      /* Safari transitionend event.propertyName === flex */
+      /* Chrome + FF transitionend event.propertyName === flex-grow */
+      transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+      font-size: 20px;
+      background-size:cover;
+      background-position:center;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+
+    .panel3 { background-image:url(http://www.seantakesgoodpics.com/wp-content/uploads/2015/11/FirstlightTetonsweb.jpg); }
+    .panel1 { background-image:url(http://www.seantakesgoodpics.com/wp-content/uploads/2015/09/FieryWindyPeakV2site.jpg); }
+    .panel2 { background-image:url(http://www.seantakesgoodpics.com/wp-content/uploads/2015/09/HshoeBasin-38.jpg); }
+
+    .panel > * {
+      margin:0;
+      width: 100%;
+      transition:transform 0.5s;
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+      
+      .panel > *:first-child{
+          transform: translateY(-100%);
+          
+      }
+      
+      .panel.open-active > *:first-child{
+          transform: translateY(0);
+          
+      }
+      
+      .panel > *:last-child{
+          transform: translateY(100%);
+      }
+      
+      .panel.open-active > *:last-child{
+          transform: translateY(0);
+          
+      }
+
+    .panel p {
+      text-transform: uppercase;
+      font-family: 'Raleway', sans-serif;
+      text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+      font-size: 1em;
+    }
+    .panel p:nth-child(2) {
+      font-size: 2em;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    
+    .panel p a {
+        text-transform: uppercase;
+      font-family: 'Raleway', sans-serif;
+      text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+      font-size: 1em;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    .panel.open {
+      font-size:25px;
+        /* will take up 3 times the amount of space as the rest. Think of it as ratios. Above the panels were displayed with a flex of 1. Now when each panel also has a class of open, it will be 3:1 */
+        flex: 3;
+    }
+
+    .cta {
+      color:white;
+      text-decoration: none;
+    }
+
+  </style>
+
+
+  <div class="panels">
+    <div class="panel panel1">
+    </div>
+    <div class="panel panel2">
+        <p>gillilands19@gmail.com</p>
+        <p class="panel_link">Sean G.</p>
+        <p class="p-background"> Get Date</p>
+    </div>
+    <div class="panel panel3">
+    </div>
+  </div>
+
+  <script>
+      
+      const panelOpeners = document.querySelectorAll('.panel_link');
+      const panels = document.querySelectorAll('.panel');
+      
+      function toggleOpen(e) {
+          if (e.target.parentNode.className.includes('panel1')) {
+              panels[0].classList.toggle('open');
+              panels[0].classList.toggle('open-active');
+          } else if (e.target.parentNode.className.includes('panel2')) {
+              panels[1].classList.toggle('open');
+              panels[1].classList.toggle('open-active');
+          } else {
+              panels[2].classList.toggle('open');
+              panels[2].classList.toggle('open-active');
+          }
+      
+      }
+      
+      /* The reason toggle open isnt called like "toggleOpen()" is because that would run on page load. we dont want to run the function but we want to say hey, when a click event happens go find the function and run it. */
+      panelOpeners.forEach(panelOpener => panelOpener.addEventListener('click', toggleOpen));
+
+  </script>
+
+
+
 </body>
+</html>
