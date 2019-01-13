@@ -1,0 +1,120 @@
+html {
+  box-sizing: border-box;
+  background:#000000;
+  font-family:'helvetica neue';
+  font-size: 20px;
+  font-weight: 200;
+}
+body {
+  margin: 0;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.p-background {
+    
+}
+
+.panels {
+  min-height:100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.panel {
+  background:#000000;
+  box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
+  color:white;
+  text-align: center;
+  align-items:center;
+  /* Safari transitionend event.propertyName === flex */
+  /* Chrome + FF transitionend event.propertyName === flex-grow */
+  transition:
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s;
+  font-size: 20px;
+  background-size:cover;
+  background-position:center;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.panel3 { background-image:url(http://www.seantakesgoodpics.com/wp-content/uploads/2015/11/FirstlightTetonsweb.jpg); }
+.panel1 { background-image:url(http://www.seantakesgoodpics.com/wp-content/uploads/2015/09/FieryWindyPeakV2site.jpg); }
+.panel2 { background-image:url(http://www.seantakesgoodpics.com/wp-content/uploads/2015/09/HshoeBasin-38.jpg); }
+
+.panel > * {
+  margin:0;
+  width: 100%;
+  transition:transform 0.5s;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .panel > *:first-child{
+      transform: translateY(-100%);
+      
+  }
+  
+  .panel.open-active > *:first-child{
+      transform: translateY(0);
+      
+  }
+  
+  .panel > *:last-child{
+      transform: translateY(100%);
+  }
+  
+  .panel.open-active > *:last-child{
+      transform: translateY(0);
+      
+  }
+
+.panel p {
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+  font-size: 1em;
+}
+.panel p:nth-child(2) {
+  font-size: 2em;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.panel p a {
+    text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+  font-size: 1em;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.panel.open {
+  font-size:25px;
+    /* will take up 3 times the amount of space as the rest. Think of it as ratios. Above the panels were displayed with a flex of 1. Now when each panel also has a class of open, it will be 3:1 */
+    flex: 3;
+}
+
+.cta {
+  color:white;
+  text-decoration: none;
+}
+
+.get_date {
+  background-color:cadetblue;
+  color: White;
+  width: 30%;
+  height: 20%;
+  font-size: 25px;
+}
